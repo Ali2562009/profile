@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ali Mahmoud | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --background: #0d0d0d;
+      --text: #e8c57d;
+      --button-bg: #1a1a1a;
+      --button-border: #e8c57d;
+      --button-hover-bg: #e8c57d;
+      --button-hover-text: #1a1a1a;
+      --quote-color: #e8c57d;
+      --max-width: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      font-family: 'Playfair Display', 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .web-title {
+      font-size: 3rem;
+      color: var(--text);
+      margin: 20px 0;
+    }
+    .social-links {
+      margin-bottom: 20px;
+    }
+    .social-link {
+      color: var(--text);
+      margin: 0 10px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-link:hover {
+      color: var(--button-hover-bg);
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .info-btn {
+      position: relative;
+      overflow: hidden;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: var(--button-bg);
+      color: var(--text);
+      border: 2px solid var(--button-border);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: color 0.3s, border-color 0.3s;
+      z-index: 1;
+    }
+    .info-btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, transparent, var(--button-hover-bg), transparent);
+      background-size: 200% 100%;
+      background-position: 200% center;
+      z-index: -1;
+      transition: none;
+    }
+    .info-btn:hover::before {
+      animation: shine 2s forwards;
+    }
+    .info-btn:hover {
+      color: var(--button-hover-text);
+      border-color: var(--button-hover-bg);
+    }
+    @keyframes shine {
+      to {
+        background-position: -50% center;
+      }
+    }
+    .quote {
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--quote-color);
+      max-width: 800px;
+      margin-top: 30px;
+    }
+    footer {
+      margin-top: 50px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .section-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: var(--max-width);
+      width: 100%;
+    }
+    .section {
+      display: none;
+      position: relative;
+      background: var(--background);
+      border: 2px solid var(--button-border);
+      border-radius: 15px;
+      padding: 20px;
+      z-index: 10;
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      overflow-y: auto;
+      text-align: left;
+      transition: all 0.4s ease;
+    }
+    .section.show {
+      display: block;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .section h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      text-align: center;
+      color: var(--text);
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .section a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--button-bg);
+      color: var(--text);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .back-to-top:hover {
+      background: var(--button-hover-bg);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="web-title">Ali Mahmoud</h1>
+    
+    <div class="social-links">
+      <a href="https://linktr.ee/Ali25_?utm_source=linktree_admin_share" target="_blank" rel="noopener noreferrer" class="social-link" title="Linktree">
+        <i class="fas fa-link"></i>
+      </a>
+      <a href="https://github.com/Ali2562009" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="buttons">
+      <button class="info-btn" onclick="showSection('life')">👤 Life Info</button>
+      <button class="info-btn" onclick="showSection('career')">🎓 Career & Certificates</button>
+      <button class="info-btn" onclick="showSection('contact')">✉️ Contact Me</button>
+    </div>
+
+    <p class="quote">"Stay silent, stay smart, strike when it matters."<br>
+      "Run."</p>
+  </main>
+
+  <div class="section-container">
+    <div class="section" id="life-section">
+      <button class="close-btn" onclick="hideSections()"><i class="fas fa-times"></i></button>
+      <h3>Life Info</h3>
+      <ul>
+        <li><strong>Full Name:</strong> Ali Mahmoud</li>
+        <li><strong>Born:</strong> 2009</li>
+        <li><strong>Location:</strong> Cairo, Egypt</li>
+        <li><strong>Interests:</strong> Programming, Cybersecurity, Long-distance running (800m - 4000m), Video Editing</li>
+        <li><strong>Sports:</strong> Competitive runner, preparing for Egyptian Championship 1000m event</li>
+        <li><strong>Favorite Music:</strong>  Billie Eillish</li>
+        <li><strong>Coach:</strong> Mostafa Mousa</li>
+      </ul>
+    </div>
+
+    <div class="section" id="career-section">
+      <button class="close-btn" onclick="hideSections()"><i class="fas fa-times"></i></button>
+      <h3>Career & Certificates</h3>
+      <ul>
+        <li>Currently studying Cybersecurity, Web Development, Graphic Designing , Technology Engineering, Electrical Engineering</li>
+        <li>Languages: Python, C++, C#, HTML, CSS, Java Script, Java, kali Linux</li>
+        <li>Focus areas: Ethical Hacking (Web, Networks, Vulnerabilities, Reverse Engineering)</li>
+        <li>Completed various online courses and training in cybersecurity and programming</li>
+        <li>Interested in exploit development and device hacking</li>
+      </ul>
+    </div>
+
+    <div class="section" id="contact-section">
+      <button class="close-btn" onclick="hideSections()"><i class="fas fa-times"></i></button>
+      <h3>Get In Touch</h3>
+      <ul>
+        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:LOLSTARE206@gmail.com">LOLSTARE206@gmail.com</a></li>
+        <li><i class="fas fa-phone"></i> Phone: +20 111 456 9874</li>
+        <li><i class="fas fa-map-marker-alt"></i> Location: Cairo, Egypt</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Ali Mahmoud. All rights reserved.
+  </footer>
+
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function showSection(section) {
+      hideSections();
+      const target = document.getElementById(section + '-section');
+      if (target) {
+        target.classList.add('show');
+      }
+    }
+
+    function hideSections() {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('show');
+      });
+    }
+
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.section') && !event.target.closest('.info-btn')) {
+        hideSections();
+      }
+    });
+
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopButton.style.display = "flex";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
+
+</body>
+</html>
